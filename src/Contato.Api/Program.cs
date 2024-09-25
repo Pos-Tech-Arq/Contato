@@ -4,6 +4,7 @@ using Contato.Infra.Configurations;
 using Contato.Infra.Contexts;
 using Contato.Infra.ExternalServices.BrasilApiService;
 using FluentValidation;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using OpenTelemetry.Metrics;
 using Prometheus;
@@ -36,6 +37,18 @@ builder.Services.AddOpenTelemetry()
                 Boundaries = new[] { 0, 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.7, 1, 2.5, 5, 10 },
             });
     });
+builder.Services.AddMassTransit(busConfigurator =>
+{
+    busConfigurator.SetSnakeCaseEndpointNameFormatter();
+    busConfigurator.UsingRabbitMq((context, busFactoryConfigurator) =>
+    {
+        busFactoryConfigurator.Host("localhost", hostConfigurator =>
+        {
+            hostConfigurator.Username("guest");
+            hostConfigurator.Password("guest");
+        });
+    });
+});
 
 var app = builder.Build();
 

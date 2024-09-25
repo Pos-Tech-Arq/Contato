@@ -44,7 +44,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-  
+
   prometheus:
     build: 
         context: ./prometheus
@@ -59,7 +59,7 @@ services:
         - contatos-service-network
     volumes:
       - './prometheus/data:/data'
-        
+
   grafana:
     build:
       context: ./grafana
@@ -72,8 +72,16 @@ services:
       - "3000:3000"
     networks:
         - contatos-service-network
-  
-   
+
+  rabbitmq:
+    container_name: "rabbitmqcontainer"
+    image: rabbitmq:management
+    hostname: "rabbitmq"
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - contatos-service-network
 networks:
   contatos-service-network:
     driver: bridge

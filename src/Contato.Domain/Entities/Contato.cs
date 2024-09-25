@@ -9,7 +9,7 @@ public class Contato : Entidade, IAggregateRoot
     public string Nome { get; private set; }
     public string Email { get; private set; }
     public Telefone Telefone { get; private set; }
-    public ContatoStatus Status { get; set; }
+    public ContatoStatus Status { get; private set; }
 
     public Contato(string nome, string email, Telefone telefone)
     {

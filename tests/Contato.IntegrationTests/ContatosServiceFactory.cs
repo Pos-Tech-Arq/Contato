@@ -19,11 +19,7 @@ public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
     public async Task InitializeAsync()
     {
         await _dockerFixture.InitializeAsync();
-        ExecuteScript("create_table_regioes.sql");
-        ExecuteScript("create_table_cidades.sql");
         ExecuteScript("create_table_contatos.sql");
-        ExecuteScript("insert_into_regioes_table.sql");
-        ExecuteScript("insert_into_cidades_table.sql");
         ExecuteScript("insert_into_contatos_table.sql");
     }
 
