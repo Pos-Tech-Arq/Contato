@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: prometheus-metrics
+    editable: true
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+
+  - name: sqlserver-metrics
+    editable: true
+    type: mssql
+    access: proxy
+    url: sqlserver:1433
+    database : ContatosDb
+    user : sa
+    password : 1q2w3e4r@#$
