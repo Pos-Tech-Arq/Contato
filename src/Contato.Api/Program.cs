@@ -47,6 +47,8 @@ builder.Services.AddMassTransit(busConfigurator =>
             hostConfigurator.Username("guest");
             hostConfigurator.Password("guest");
         });
+        busFactoryConfigurator.UseJsonSerializer();
+        busFactoryConfigurator.ConfigureEndpoints(context);
     });
 });
 

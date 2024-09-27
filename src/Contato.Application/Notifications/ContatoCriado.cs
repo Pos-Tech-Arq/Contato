@@ -1,16 +1,13 @@
 ﻿using Contato.Domain.Enums;
 using Contato.Domain.ValueObjects;
+using MassTransit;
 
-namespace Contato.Application.Notifications;
-
-public class ContatoCriado
+namespace Message.Contato
 {
-    public Guid ContatoId { get; set; }
-    public Telefone Telefone { get;  set; }
-
-    public ContatoCriado(Domain.Entities.Contato contato)
+    [EntityName("contato_criado")]
+    public class ContatoCriado
     {
-        ContatoId = contato.Id;
-        Telefone = contato.Telefone;
+        public Guid MessegeId { get; set; }
+        public string Ddd { get; set; }
     }
 }
