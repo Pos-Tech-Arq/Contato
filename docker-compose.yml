@@ -17,6 +17,8 @@ services:
     networks:
       - contatos-service-network
     depends_on:
+      rabbitmq:
+        condition: service_started
       sqlserver:
         condition: service_healthy
 
@@ -82,6 +84,7 @@ services:
       - '15672:15672'
     networks:
       - contatos-service-network
+        
 networks:
   contatos-service-network:
     driver: bridge
