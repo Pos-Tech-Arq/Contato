@@ -12,6 +12,6 @@ datasources:
     type: mssql
     access: proxy
     url: sqlserver:1433
-    database : ContatosDb
-    user : sa
-    password : 1q2w3e4r@#$
+    database: ContatosDb
+    user: sa
+    password: "1q2w3e4r@#$"
