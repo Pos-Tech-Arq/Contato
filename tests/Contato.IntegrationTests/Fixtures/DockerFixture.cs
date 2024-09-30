@@ -1,7 +1,7 @@
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
 
-namespace Contato.IntegrationTests.Infra;
+namespace Contato.IntegrationTests.Fixtures;
 
 public class DockerFixture
 {
@@ -21,7 +21,7 @@ public class DockerFixture
             .WithAutoRemove(true)
             .Build();
     }
-    
+
     public Task InitializeAsync() => MsSqlContainer.StartAsync();
     public Task DisposeAsync() => MsSqlContainer.DisposeAsync().AsTask();
 }

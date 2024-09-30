@@ -1,16 +1,16 @@
-using System.Data.SqlClient;
 using Contato.Infra.Contexts;
-using Contato.IntegrationTests.Infra;
+using Contato.IntegrationTests.Fixtures;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Contato.IntegrationTests;
+namespace Contato.IntegrationTests.Factories;
 
-[CollectionDefinition(nameof(ContatosFactoryCollection))]
-public class ContatosFactoryCollection : ICollectionFixture<ContatoFactory>;
+[CollectionDefinition(nameof(ContatoFactoryCollection))]
+public class ContatoFactoryCollection : ICollectionFixture<ContatoFactory>;
 
 public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
@@ -44,6 +44,11 @@ public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
             {
                 options.UseSqlServer(GetConnectionString(), x => x.MigrationsAssembly("Contato.Infra"));
             });
+            
+            // services.AddMediatR(cfg =>
+            // {
+            //     cfg.RegisterServicesFromAssemblyContaining<YourHandlerType>(); // Only scan relevant assembly
+            // });
         });
     }
 

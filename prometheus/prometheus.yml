@@ -6,3 +6,8 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets: ["api:8080"]
+        
+  - job_name: "regioes-metrics-job"
+    metrics_path: /metrics
+    static_configs:
+      - targets: [ "localhost:5000" ]

@@ -15,6 +15,6 @@ public static class AddApplicationServiceExtension
         serviceCollection.AddScoped<IRequestHandler<AtualizaContatoCommand>, AtualizaContatoCommandHandler>();
         serviceCollection.AddScoped<IRequestHandler<CriaContatoCommand>, CriaContatoCommandHandler>();
         serviceCollection.AddScoped<IRequestHandler<RemoveContatoCommand>, RemoveContatoCommandHandler>();
-        serviceCollection.AddMediatR(c => c.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+        serviceCollection.AddMediatR(c => c.RegisterServicesFromAssemblies(typeof(AtualizaContatoCommandHandler).Assembly));
     }
 }

@@ -1,10 +1,11 @@
 using Contato.Infra.Contexts;
+using Contato.IntegrationTests.Factories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Contato.IntegrationTests.Infra;
+namespace Contato.IntegrationTests;
 
-[Collection(name: nameof(ContatosFactoryCollection))]
-public abstract class IntegrationTests(ContatoFactory factory)
+[Collection(name: nameof(ContatoFactoryCollection))]
+public abstract class BaseIntegrationTests(ContatoFactory factory)
 {
     private readonly AsyncServiceScope _integrationTestScope = factory.Services.CreateAsyncScope();
     protected HttpClient Client => factory.Server.CreateClient();
