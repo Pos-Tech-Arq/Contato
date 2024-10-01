@@ -11,7 +11,7 @@ public class DockerFixture
     {
         MsSqlContainer = new ContainerBuilder()
             .WithCleanUp(true)
-            .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
+            .WithImage("mcr.microsoft.com/mssql/server:2019-latest")
             .WithPortBinding(1433, true)
             .WithEnvironment("ACCEPT_EULA", "Y")
             .WithEnvironment("SQLCMDUSER", "sa")

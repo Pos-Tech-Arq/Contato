@@ -1,4 +1,5 @@
-﻿using Contato.Application.UseCases.ApagaContato;
+﻿using System.Reflection;
+using Contato.Application.UseCases.ApagaContato;
 using Contato.Application.UseCases.AtualizaContato;
 using Contato.Application.UseCases.CriaContato;
 using Contato.Application.UseCases.RemoveContato;
@@ -15,6 +16,6 @@ public static class AddApplicationServiceExtension
         serviceCollection.AddScoped<IRequestHandler<AtualizaContatoCommand>, AtualizaContatoCommandHandler>();
         serviceCollection.AddScoped<IRequestHandler<CriaContatoCommand>, CriaContatoCommandHandler>();
         serviceCollection.AddScoped<IRequestHandler<RemoveContatoCommand>, RemoveContatoCommandHandler>();
-        serviceCollection.AddMediatR(c => c.RegisterServicesFromAssemblies(typeof(AtualizaContatoCommandHandler).Assembly));
+        serviceCollection.AddMediatR(c => c.RegisterServicesFromAssemblies(Assembly.Load("Contato.Application")));
     }
 }

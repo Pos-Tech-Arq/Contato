@@ -14,16 +14,16 @@ public class ContatoFactoryCollection : ICollectionFixture<ContatoFactory>;
 
 public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
-    private static readonly DockerFixture _dockerFixture = new();
+    private static readonly DockerFixture DockerFixture = new();
 
     public async Task InitializeAsync()
     {
-        await _dockerFixture.InitializeAsync();
+        await DockerFixture.InitializeAsync();
         ExecuteScript("create_table_contatos.sql");
         ExecuteScript("insert_into_contatos_table.sql");
     }
 
-    public new async Task DisposeAsync() => await _dockerFixture.DisposeAsync();
+    public new async Task DisposeAsync() => await DockerFixture.DisposeAsync();
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -55,7 +55,7 @@ public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
     public string GetConnectionString()
     {
         return
-            $"Server=localhost,{_dockerFixture.MsSqlContainer.GetMappedPublicPort(1433)};User=sa;Password=Strong_password_123!;TrustServerCertificate=True";
+            $"Server=localhost,{DockerFixture.MsSqlContainer.GetMappedPublicPort(1433)};User=sa;Password=Strong_password_123!;TrustServerCertificate=True";
     }
 
     public void ExecuteScript(string scriptName)
