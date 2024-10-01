@@ -1,3 +1,4 @@
+using Contato.Infra.Configurations;
 using Contato.Infra.Contexts;
 using Contato.IntegrationTests.Fixtures;
 using Microsoft.AspNetCore.Hosting;
@@ -14,16 +15,28 @@ public class ContatoFactoryCollection : ICollectionFixture<ContatoFactory>;
 
 public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
-    private static readonly DockerFixture DockerFixture = new();
+    private static readonly SqlServerDockerFixture SqlServerDockerFixture = new();
+    private static readonly RabbitMqDockerFixture RabbitMqDockerFixture = new();
 
     public async Task InitializeAsync()
     {
-        await DockerFixture.InitializeAsync();
+        await Task.WhenAll(
+            RabbitMqDockerFixture.InitializeAsync(),
+            SqlServerDockerFixture.InitializeAsync()
+        );
         ExecuteScript("create_table_contatos.sql");
         ExecuteScript("insert_into_contatos_table.sql");
     }
 
-    public new async Task DisposeAsync() => await DockerFixture.DisposeAsync();
+    public new async Task DisposeAsync()
+    {
+        ExecuteScript("drop_tables.sql");
+        await Task.WhenAll(
+            RabbitMqDockerFixture.DisposeAsync(),
+            SqlServerDockerFixture.DisposeAsync()
+        );
+    } 
+        
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -44,18 +57,13 @@ public class ContatoFactory : WebApplicationFactory<Program>, IAsyncLifetime
             {
                 options.UseSqlServer(GetConnectionString(), x => x.MigrationsAssembly("Contato.Infra"));
             });
-            
-            // services.AddMediatR(cfg =>
-            // {
-            //     cfg.RegisterServicesFromAssemblyContaining<YourHandlerType>(); // Only scan relevant assembly
-            // });
         });
     }
 
     public string GetConnectionString()
     {
         return
-            $"Server=localhost,{DockerFixture.MsSqlContainer.GetMappedPublicPort(1433)};User=sa;Password=Strong_password_123!;TrustServerCertificate=True";
+            $"Server=localhost,{SqlServerDockerFixture.MsSqlContainer.GetMappedPublicPort(1433)};User=sa;Password=Strong_password_123!;TrustServerCertificate=True";
     }
 
     public void ExecuteScript(string scriptName)

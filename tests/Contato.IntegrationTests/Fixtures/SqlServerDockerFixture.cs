@@ -1,0 +1,22 @@
+using DotNet.Testcontainers.Builders;
+using DotNet.Testcontainers.Containers;
+
+namespace Contato.IntegrationTests.Fixtures;
+
+public class SqlServerDockerFixture
+{
+    public IContainer MsSqlContainer { get; } = new ContainerBuilder()
+        .WithCleanUp(true)
+        .WithImage("mcr.microsoft.com/mssql/server:2019-latest")
+        .WithPortBinding(1433, true)
+        .WithEnvironment("ACCEPT_EULA", "Y")
+        .WithEnvironment("SQLCMDUSER", "sa")
+        .WithEnvironment("SQLCMDPASSWORD", "Strong_password_123!")
+        .WithEnvironment("MSSQL_SA_PASSWORD", "Strong_password_123!")
+        .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
+        .WithAutoRemove(true)
+        .Build();
+
+    public Task InitializeAsync() => MsSqlContainer.StartAsync();
+    public Task DisposeAsync() => MsSqlContainer.DisposeAsync().AsTask();
+}
