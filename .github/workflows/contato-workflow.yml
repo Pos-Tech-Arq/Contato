@@ -2,9 +2,9 @@ name: API Contatos .NET Core
 
 on:
   push:
-    branches: [ "main", "features/add-worflow" ]
+    branches: [ "main", "features/testes-integracao" ]
   pull_request:
-    branches: [ "main", "features/add-worflow" ]
+    branches: [ "main", "features/testes-integracao" ]
 
 jobs:
 
