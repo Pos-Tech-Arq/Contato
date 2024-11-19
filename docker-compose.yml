@@ -1,27 +1,26 @@
 version: "3"
 services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        version: 1
-    image: contatos-service-api-metrics
-    ports:
-      - "8080:8080"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - Server="mssql-server"
-      - Database=ContatosDb
-      - Password="1q2w3e4r@#$"
-      - 
-    networks:
-      - contatos-service-network
-    depends_on:
-      rabbitmq:
-        condition: service_started
-      sqlserver:
-        condition: service_healthy
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       version: 1
+  #   image: contatos-service-api-metrics
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - Server="mssql-server"
+  #     - Database=ContatosDb
+  #     - Password="1q2w3e4r@#$"
+  #   networks:
+  #     - contatos-service-network
+  #   depends_on:
+  #     rabbitmq:
+  #       condition: service_started
+  #     sqlserver:
+  #       condition: service_healthy
 
   sqlserver:
     build:

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: contato-pod
+  labels:
+        app: contato-pod
+spec:
+  containers:
+    - name: contatopod
+      image: franciscoasantana/contato
+      ports:
+        - containerPort: 8080

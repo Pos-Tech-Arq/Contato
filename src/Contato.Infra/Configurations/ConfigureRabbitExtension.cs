@@ -5,7 +5,7 @@ namespace Contato.Infra.Configurations;
 
 public static class ConfigureRabbitExtension
 {
-    public static void ConfigureRabbit(this IServiceCollection serviceCollection, string rabbitMqHost = "localhost", ushort rabbitMqPort = 5672)
+    public static void ConfigureRabbit(this IServiceCollection serviceCollection, string rabbitMqHost = "rabbitmq-pod", ushort rabbitMqPort = 5672)
     {
         serviceCollection.AddMassTransit(busConfigurator =>
         {
