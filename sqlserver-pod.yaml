@@ -15,5 +15,5 @@ spec:
           value: "Y"
         - name: MSSQL_PID
           value: "Developer"  # Você pode usar "Express", "Standard", ou "Enterprise" também.
-        - name: SA_PASSWORD
+        - name: MSSQL_SA_PASSWORD
           value: "1q2w3e4r@#$"

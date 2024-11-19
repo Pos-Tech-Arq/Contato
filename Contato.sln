@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{71292E
 		Dockerfile = Dockerfile
 		rabbitmq-pod.yaml = rabbitmq-pod.yaml
 		rabbitmq-service.yaml = rabbitmq-service.yaml
-		sql.yaml = sql.yaml
 		sqlserver-pod.yaml = sqlserver-pod.yaml
 		sqlserver-service.yaml = sqlserver-service.yaml
 	EndProjectSection

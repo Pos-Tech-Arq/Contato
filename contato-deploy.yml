@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: contatopod
-      image: franciscoasantana/contato
+      image: franciscoasantana/contatos
       ports:
         - containerPort: 8080

@@ -3,13 +3,11 @@ kind: Service
 metadata:
   labels:
     app: sqlserver
-  name: sqlserver-nodeport-svc
+  name: sqlserver-svc
 spec:
   ports:
   - port: 1433
-    protocol: TCP
     targetPort: 1433
-    nodePort: 31300
   selector:
     app: sqlserver-pod
   type: NodePort
