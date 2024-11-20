@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contato.UnitTests", "tests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{71292E15-A350-49D1-AEBF-42DAAF3DEDC9}"
 	ProjectSection(SolutionItems) = preProject
+		configmap.yaml = configmap.yaml
 		contato-deploy.yml = contato-deploy.yml
 		contato-service.yml = contato-service.yml
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
 		rabbitmq-pod.yaml = rabbitmq-pod.yaml
 		rabbitmq-service.yaml = rabbitmq-service.yaml
-		sqlserver-pod.yaml = sqlserver-pod.yaml
 		sqlserver-service.yaml = sqlserver-service.yaml
 	EndProjectSection
 EndProject

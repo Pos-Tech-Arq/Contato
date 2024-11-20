@@ -6,7 +6,10 @@ metadata:
         app: contato-pod
 spec:
   containers:
-    - name: contatopod
-      image: franciscoasantana/contatos
-      ports:
-        - containerPort: 8080
+  - name: contatopod
+    image: franciscoasantana/contatos
+    ports:
+    - containerPort: 8080
+    envFrom:
+    - configMapRef:
+        name: config

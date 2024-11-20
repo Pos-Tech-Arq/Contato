@@ -30,6 +30,9 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogDebug(builder.Configuration.GetConnectionString("DefaultConnection").Replace("@server", Environment.GetEnvironmentVariable("Sql_Server")));
+
         var context = services.GetRequiredService<ApplicationDbContext>();
         context.Database.Migrate();
     }

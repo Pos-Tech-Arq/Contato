@@ -7,6 +7,7 @@ public static class ConfigureRabbitExtension
 {
     public static void ConfigureRabbit(this IServiceCollection serviceCollection, string rabbitMqHost = "rabbitmq-pod", ushort rabbitMqPort = 5672)
     {
+        rabbitMqHost = Environment.GetEnvironmentVariable("RabbitMq");
         serviceCollection.AddMassTransit(busConfigurator =>
         {
             busConfigurator.SetSnakeCaseEndpointNameFormatter();
