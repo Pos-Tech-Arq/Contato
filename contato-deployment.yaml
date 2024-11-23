@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contato-api
+  labels:
+    app: contato-api
+  annotations:
+    author: Francisco Santana
+    app-version: 1.0.0
+spec:
+  replicas : 2    
+  selector:
+    matchLabels:
+      app: contato-api
+  template:
+    metadata:
+      labels:
+        app: contato-api
+    spec:
+     containers:
+     - name: contato-container
+       image: franciscoasantana/contatos
+       ports:
+       - containerPort: 8080
+       envFrom:
+       - configMapRef:
+           name: config

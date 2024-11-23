@@ -3,7 +3,10 @@ kind: Pod
 metadata:
   name: contato-pod
   labels:
-        app: contato-pod
+    app: contato-pod
+  annotations:
+    author: Francisco Santana
+    app-version: 1.0.0
 spec:
   containers:
   - name: contatopod

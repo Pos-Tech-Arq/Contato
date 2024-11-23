@@ -3,7 +3,10 @@ kind: Pod
 metadata:
   name: rabbitmq-pod
   labels:
-        app: rabbitmq-pod
+    app: rabbitmq-pod
+  annotations:
+    author: Francisco Santana
+    app-version: 1.0.0
 spec:
   containers:
     - name: rabbitmqpod

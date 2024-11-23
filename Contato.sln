@@ -13,14 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contato.UnitTests", "tests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{71292E15-A350-49D1-AEBF-42DAAF3DEDC9}"
 	ProjectSection(SolutionItems) = preProject
-		configmap.yaml = configmap.yaml
-		contato-deploy.yml = contato-deploy.yml
-		contato-service.yml = contato-service.yml
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
-		rabbitmq-pod.yaml = rabbitmq-pod.yaml
-		rabbitmq-service.yaml = rabbitmq-service.yaml
-		sqlserver-service.yaml = sqlserver-service.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7C218A86-81F6-47D0-B1D2-DB82D12E84B5}"
@@ -30,6 +24,23 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contato.Application", "src\Contato.Application\Contato.Application.csproj", "{CE45EA76-141D-4C01-AA6C-A67D9F8E95AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contato.IntegrationTests", "tests\Contato.IntegrationTests\Contato.IntegrationTests.csproj", "{6869D4E7-CD5C-440D-B3AF-E854CBFB6F2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8s", "K8s", "{9957B67D-8887-4CD1-A277-BB0B3888F108}"
+	ProjectSection(SolutionItems) = preProject
+		configmap.yaml = configmap.yaml
+		contato-deployment.yaml = contato-deployment.yaml
+		contato-replicaset.yaml = contato-replicaset.yaml
+		rabbitmq-pod.yaml = rabbitmq-pod.yaml
+		contato-pod.yml = contato-pod.yml
+		sqlserver-pod.yaml = sqlserver-pod.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D8C8B0C7-0F41-4526-94D8-461B366CDB67}"
+	ProjectSection(SolutionItems) = preProject
+		contato-service.yml = contato-service.yml
+		rabbitmq-service.yaml = rabbitmq-service.yaml
+		sqlserver-service.yaml = sqlserver-service.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +83,7 @@ Global
 		{27DD6C82-22BE-45EE-96D0-C6A16AA1D485} = {DB402053-994A-4E92-B13D-8B60A74C2943}
 		{CE45EA76-141D-4C01-AA6C-A67D9F8E95AE} = {7C218A86-81F6-47D0-B1D2-DB82D12E84B5}
 		{6869D4E7-CD5C-440D-B3AF-E854CBFB6F2F} = {DB402053-994A-4E92-B13D-8B60A74C2943}
+		{D8C8B0C7-0F41-4526-94D8-461B366CDB67} = {9957B67D-8887-4CD1-A277-BB0B3888F108}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF84EBC7-CB36-46A4-BC1C-4E7580EDDC32}
