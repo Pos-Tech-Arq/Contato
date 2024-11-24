@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq-k8s
+  labels:
+    app: rabbitmq-k8s
+  annotations:
+    author: Francisco Santana
+    app-version: 1.0.0
+spec:
+  replicas : 1    
+  selector:
+    matchLabels:
+      app: rabbitmq-k8s
+  template:
+    metadata:
+      labels:
+        app: rabbitmq-k8s
+    spec:
+     containers:
+     - name: rabbitmq-container
+       image: rabbitmq:management
+       ports:
+       - containerPort: 5672
+       - containerPort: 15672

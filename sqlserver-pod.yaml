@@ -13,6 +13,9 @@ spec:
       image: mcr.microsoft.com/mssql/server:2022-latest
       ports:
         - containerPort: 1433
+      volumeMounts:
+        - name: shared
+          mountPath: /data/db
       env:
         - name: ACCEPT_EULA
           value: "Y"
@@ -20,3 +23,7 @@ spec:
           value: "Developer"
         - name: MSSQL_SA_PASSWORD
           value: "1q2w3e4r@#$"
+  volume:
+    - name: shared
+      persistentVolumeClaim:
+        claimName: contato-pvc

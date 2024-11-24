@@ -28,11 +28,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8s", "K8s", "{9957B67D-8887-4CD1-A277-BB0B3888F108}"
 	ProjectSection(SolutionItems) = preProject
 		configmap.yaml = configmap.yaml
-		contato-deployment.yaml = contato-deployment.yaml
-		contato-replicaset.yaml = contato-replicaset.yaml
-		rabbitmq-pod.yaml = rabbitmq-pod.yaml
-		contato-pod.yml = contato-pod.yml
-		sqlserver-pod.yaml = sqlserver-pod.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D8C8B0C7-0F41-4526-94D8-461B366CDB67}"
@@ -40,6 +35,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D8
 		contato-service.yml = contato-service.yml
 		rabbitmq-service.yaml = rabbitmq-service.yaml
 		sqlserver-service.yaml = sqlserver-service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "volume", "volume", "{3E817522-48B3-4692-978C-6C43051F3BE0}"
+	ProjectSection(SolutionItems) = preProject
+		pv.yaml = pv.yaml
+		pvc.yaml = pvc.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pod", "pod", "{B5B71559-16FD-40BA-8192-B43FB7B5A613}"
+	ProjectSection(SolutionItems) = preProject
+		contato-replicaset.yaml = contato-replicaset.yaml
+		rabbitmq-pod.yaml = rabbitmq-pod.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{4277B664-D599-4845-BE82-C254D4BB68CB}"
+	ProjectSection(SolutionItems) = preProject
+		contato-deployment.yaml = contato-deployment.yaml
+		rabbitmq-deployment.yaml = rabbitmq-deployment.yaml
+		sqlserver-deployment.yaml = sqlserver-deployment.yaml
 	EndProjectSection
 EndProject
 Global
@@ -84,6 +98,9 @@ Global
 		{CE45EA76-141D-4C01-AA6C-A67D9F8E95AE} = {7C218A86-81F6-47D0-B1D2-DB82D12E84B5}
 		{6869D4E7-CD5C-440D-B3AF-E854CBFB6F2F} = {DB402053-994A-4E92-B13D-8B60A74C2943}
 		{D8C8B0C7-0F41-4526-94D8-461B366CDB67} = {9957B67D-8887-4CD1-A277-BB0B3888F108}
+		{3E817522-48B3-4692-978C-6C43051F3BE0} = {9957B67D-8887-4CD1-A277-BB0B3888F108}
+		{B5B71559-16FD-40BA-8192-B43FB7B5A613} = {9957B67D-8887-4CD1-A277-BB0B3888F108}
+		{4277B664-D599-4845-BE82-C254D4BB68CB} = {9957B67D-8887-4CD1-A277-BB0B3888F108}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF84EBC7-CB36-46A4-BC1C-4E7580EDDC32}

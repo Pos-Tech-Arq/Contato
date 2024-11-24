@@ -3,12 +3,12 @@ kind: Service
 metadata:
   labels:
     app: contato
-  name: contato-nodeport-svc
+  name: contato-svc
 spec:
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: contato-pod
+    app: contato-api
   type: NodePort

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: rabbitmq
-  name: rabbitmq-nodeport-svc
+  name: rabbitmq-svc
 spec:
   ports:
   - port: 5672
@@ -15,5 +15,5 @@ spec:
     protocol: TCP
     targetPort: 15672
   selector:
-    app: rabbitmq-pod
+    app: rabbitmq-k8s
   type: NodePort

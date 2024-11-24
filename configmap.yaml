@@ -4,4 +4,4 @@ metadata:
     name: config
 data:
     Sql_Server: sqlserver-svc
-    RabbitMq: rabbitmq-nodeport-svc
+    RabbitMq: rabbitmq-svc
