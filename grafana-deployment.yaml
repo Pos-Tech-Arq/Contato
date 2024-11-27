@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: contato-api
+  name: grafana-k8s
   labels:
-    app: contato-api
+    app: grafana-k8s
   annotations:
     author: Francisco Santana
     app-version: 1.0.0
@@ -11,20 +11,17 @@ spec:
   replicas : 2    
   selector:
     matchLabels:
-      app: contato-api
+      app: grafana-k8s
   template:
     metadata:
       labels:
-        app: contato-api
+        app: grafana-k8s
     spec:
      containers:
-     - name: contato-container
-       image: franciscoasantana/contatos
-       env:
-         - name: ASPNETCORE_ENVIRONMENT
-           value: Development
+     - name: grafana-container
+       image: ramiromilena/grafana:v3
        ports:
-       - containerPort: 8080
+       - containerPort: 3000
        envFrom:
        - configMapRef:
            name: config
