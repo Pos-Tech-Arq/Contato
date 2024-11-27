@@ -35,6 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D8
 		contato-service.yml = contato-service.yml
 		rabbitmq-service.yaml = rabbitmq-service.yaml
 		sqlserver-service.yaml = sqlserver-service.yaml
+		prometheus-service.yaml = prometheus-service.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "volume", "volume", "{3E817522-48B3-4692-978C-6C43051F3BE0}"
@@ -54,6 +55,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", 
 		contato-deployment.yaml = contato-deployment.yaml
 		rabbitmq-deployment.yaml = rabbitmq-deployment.yaml
 		sqlserver-deployment.yaml = sqlserver-deployment.yaml
+		prometheus-deployment.yaml = prometheus-deployment.yaml
 	EndProjectSection
 EndProject
 Global
