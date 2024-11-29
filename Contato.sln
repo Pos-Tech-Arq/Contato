@@ -32,32 +32,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K8s", "K8s", "{9957B67D-888
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D8C8B0C7-0F41-4526-94D8-461B366CDB67}"
 	ProjectSection(SolutionItems) = preProject
-		contato-service.yml = contato-service.yml
-		rabbitmq-service.yaml = rabbitmq-service.yaml
-		sqlserver-service.yaml = sqlserver-service.yaml
-		prometheus-service.yaml = prometheus-service.yaml
-		grafana-service.yaml = grafana-service.yaml
+		k8s\contato-service.yml = k8s\contato-service.yml
+		k8s\grafana-service.yaml = k8s\grafana-service.yaml
+		k8s\prometheus-service.yaml = k8s\prometheus-service.yaml
+		k8s\rabbitmq-service.yaml = k8s\rabbitmq-service.yaml
+		k8s\sqlserver-service.yaml = k8s\sqlserver-service.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "volume", "volume", "{3E817522-48B3-4692-978C-6C43051F3BE0}"
 	ProjectSection(SolutionItems) = preProject
-		pv.yaml = pv.yaml
-		pvc.yaml = pvc.yaml
+		k8s\pv.yaml = k8s\pv.yaml
+		k8s\pvc.yaml = k8s\pvc.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pod", "pod", "{B5B71559-16FD-40BA-8192-B43FB7B5A613}"
 	ProjectSection(SolutionItems) = preProject
-		contato-replicaset.yaml = contato-replicaset.yaml
-		rabbitmq-pod.yaml = rabbitmq-pod.yaml
+		k8s\contato-replicaset.yaml = k8s\contato-replicaset.yaml
+		k8s\rabbitmq-pod.yaml = k8s\rabbitmq-pod.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{4277B664-D599-4845-BE82-C254D4BB68CB}"
 	ProjectSection(SolutionItems) = preProject
-		contato-deployment.yaml = contato-deployment.yaml
-		rabbitmq-deployment.yaml = rabbitmq-deployment.yaml
-		sqlserver-deployment.yaml = sqlserver-deployment.yaml
-		prometheus-deployment.yaml = prometheus-deployment.yaml
-		grafana-deployment.yaml = grafana-deployment.yaml
+		k8s\contato-deployment.yaml = k8s\contato-deployment.yaml
+		k8s\grafana-deployment.yaml = k8s\grafana-deployment.yaml
+		k8s\prometheus-deployment.yaml = k8s\prometheus-deployment.yaml
+		k8s\rabbitmq-deployment.yaml = k8s\rabbitmq-deployment.yaml
+		k8s\sqlserver-deployment.yaml = k8s\sqlserver-deployment.yaml
 	EndProjectSection
 EndProject
 Global
