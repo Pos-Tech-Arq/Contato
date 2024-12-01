@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: config
+data:
+    Sql_Server: sqlserver-svc
+    RabbitMq: rabbitmq-svc

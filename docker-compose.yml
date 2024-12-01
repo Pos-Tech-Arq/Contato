@@ -14,7 +14,6 @@ services:
       - Server="mssql-server"
       - Database=ContatosDb
       - Password="1q2w3e4r@#$"
-      - 
     networks:
       - contatos-service-network
     depends_on:

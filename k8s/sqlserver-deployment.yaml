@@ -1,0 +1,33 @@
+dokerapiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqlserver-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserver-k8s
+  template:
+    metadata:
+      labels:
+        app: sqlserver-k8s
+    spec:
+      containers:
+        - name: sqlserver-container
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_PID
+              value: "Developer"
+            - name: MSSQL_SA_PASSWORD
+              value: "1q2w3e4r@#$"
+          ports:
+            - containerPort: 1433
+          volumeMounts:
+            - name: shared
+              mountPath: /var/opt/mssql
+      volumes:
+        - name: shared
+          persistentVolumeClaim:
+            claimName: contato-pvc-sql

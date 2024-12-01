@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-k8s
+  labels:
+    app: prometheus-k8s
+  annotations:
+    author: Francisco Santana
+    app-version: 1.0.0
+spec:
+  replicas : 2    
+  selector:
+    matchLabels:
+      app: prometheus-k8s
+  template:
+    metadata:
+      labels:
+        app: prometheus-k8s
+    spec:
+     containers:
+     - name: prometheus-container
+       image: ramiromilena/prometheus:v2
+       ports:
+       - containerPort: 9090
+       envFrom:
+       - configMapRef:
+           name: config

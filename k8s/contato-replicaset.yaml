@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: contato-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: contato-pod
+  template:
+    metadata:
+      labels:
+        app: contato-pod
+    spec:
+     containers:
+     - name: contatopod
+       image: franciscoasantana/contatos
+       ports:
+       - containerPort: 8080
+       envFrom:
+       - configMapRef:
+           name: config

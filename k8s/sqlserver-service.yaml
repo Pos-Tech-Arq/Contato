@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sqlserver
+  name: sqlserver-svc
+spec:
+  ports:
+  - port: 1433
+    targetPort: 1433
+  selector:
+    app: sqlserver-k8s
+  type: NodePort

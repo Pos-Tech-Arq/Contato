@@ -12,7 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.4" />
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.0-preview1.24240.8" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.0-preview2.24304.8" />
         <PackageReference Include="Testcontainers" Version="3.10.0" />
         <PackageReference Include="Testcontainers.MsSql" Version="3.10.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
