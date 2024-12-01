@@ -13,7 +13,7 @@ public static class ConfigureRabbitExtension
             busConfigurator.SetSnakeCaseEndpointNameFormatter();
             busConfigurator.UsingRabbitMq((context, busFactoryConfigurator) =>
             {
-                busFactoryConfigurator.Host(rabbitMqHost, rabbitMqPort, "/", hostConfigurator =>
+                busFactoryConfigurator.Host(rabbitMqHost ?? "localhost", rabbitMqPort, "/", hostConfigurator =>
                 {
                     hostConfigurator.Username("guest");
                     hostConfigurator.Password("guest");
