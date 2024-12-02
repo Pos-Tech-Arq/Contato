@@ -25,6 +25,15 @@ spec:
            value: Development
        ports:
        - containerPort: 8080
+       livenessProbe:
+         httpGet:
+           path: /health
+           port: 8080
+         initialDelaySeconds: 5
+         periodSeconds: 10
+         failureThreshold: 3
+         successThreshold: 1
+         timeoutSeconds: 2
        envFrom:
        - configMapRef:
            name: config
