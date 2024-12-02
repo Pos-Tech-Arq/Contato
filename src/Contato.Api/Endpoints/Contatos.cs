@@ -1,6 +1,6 @@
 ﻿using Contato.Api.Requests;
-using Contato.Application.UseCases.ApagaContato;
 using Contato.Application.UseCases.CriaContato;
+using Contato.Application.UseCases.CriaContatos;
 using Contato.Application.UseCases.RemoveContato;
 using Contato.Domain.Commands;
 using Contato.Domain.Contracts;
@@ -23,6 +23,17 @@ public static class Contatos
                 return TypedResults.NoContent();
             })
             .WithName("CriaContato")
+            .WithOpenApi()
+            .AddFluentValidationFilter();
+
+        contatoRoute.MapPost("CriaContatos", async (IMediator mediator, [FromBody] List<CriaContatoRequest> request) =>
+        {
+            await mediator.Send(new CriaContatosCommand(request.Select(x => new CriaContatoCommand(x.Telefone.Ddd, x.Telefone.Numero, x.Nome,
+                    x.Email)).ToList()));
+
+            return TypedResults.NoContent();
+        })
+            .WithName("CriaContatos")
             .WithOpenApi()
             .AddFluentValidationFilter();
 
