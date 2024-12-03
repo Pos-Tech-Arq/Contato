@@ -20,10 +20,10 @@ public class CriaContatosCommandHandler : IRequestHandler<CriaContatosCommand>
 
     public async Task Handle(CriaContatosCommand request, CancellationToken cT)
     {
-        await Parallel.ForEachAsync(request.Contatos, new ParallelOptions { MaxDegreeOfParallelism = 10, CancellationToken = cT }, async (x, cT) =>
+        foreach (var c in request.Contatos)
         {
-            var telefone = new Telefone(x.Ddd, x.Numero);
-            var contato = new Domain.Entities.Contato(x.Nome, x.Email, telefone);
+            var telefone = new Telefone(c.Ddd, c.Numero);
+            var contato = new Domain.Entities.Contato(c.Nome, c.Email, telefone);
 
             await _contatosRepository.Create(contato);
             await _publisher.Publish(new ContatoCriado()
@@ -31,6 +31,6 @@ public class CriaContatosCommandHandler : IRequestHandler<CriaContatosCommand>
                 Ddd = contato.Telefone.Ddd,
                 MessegeId = contato.Id
             }, cT);
-        });
+        };
     }
 }

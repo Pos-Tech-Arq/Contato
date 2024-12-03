@@ -8,7 +8,7 @@ metadata:
     author: Francisco Santana
     app-version: 1.0.0
 spec:
-  replicas : 2    
+  replicas : 1    
   selector:
     matchLabels:
       app: contato-api
@@ -20,9 +20,6 @@ spec:
      containers:
      - name: contato-container
        image: franciscoasantana/contatos
-       env:
-         - name: ASPNETCORE_ENVIRONMENT
-           value: Development
        ports:
        - containerPort: 8080
        livenessProbe:
